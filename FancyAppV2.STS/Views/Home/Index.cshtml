@@ -1,0 +1,19 @@
+﻿@using Microsoft.Extensions.Options
+@using FancyAppV2.STS.Models
+@{
+    ViewData["Title"] = "FancyAppV2.STS Home";
+}
+@inject IOptions<StsConfig> OptionsStsConfig
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Hi @User.Identity.Name</h1>
+}
+else
+{
+    <br/>
+}
+
+<a href="@OptionsStsConfig.Value.ClientUrl">
+    ClientUrl
+</a>
